@@ -1,3 +1,5 @@
+const Test = require('../models/Test')
+
 class SiteController {
     // GET /
     index(req, res, next) {
