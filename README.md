@@ -10,6 +10,7 @@ npm i express-handlebars
 npm i mongoose
 npm i mongoose-slug-generator
 npm install method-override
+npm install dotenv --save
 
 npm i nodemon --save-dev
 npm i morgan --save-dev
