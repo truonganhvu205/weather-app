@@ -2,24 +2,24 @@
     <div class="my-4">
         <h1 class="text-center fw-bold">Weather App</h1>
 
-        <form method="GET" action="/">
+        <form method="GET" action="/" id="form-search">
             <div class="my-4 d-flex justify-content-center align-items-center">
                 <input 
                 type="text" 
                 name="q" 
                 id="" 
                 class="w-100 p-2 border-0 border-bottom" 
-                placeholder="Where do you live? ..."
+                placeholder="How your place's weather?"
                 required>
-                <button type="submit" class="btn btn-link text-decoration-none" id="searchBtn">Search</button>
+                <button type="submit" class="btn btn-link text-decoration-none" id="search-btn">Search</button>
             </div>
         </form>
     </div>
 
-    <div class="my-4" id="weather-visible">
+    <div class="my-4 d-none" id="weather-visible">
         <div>
             <p>Oct 2, 08:56am</p>
-            <h5 class="fw-bold">{{data.name}}, {{data.sys.country}}</h5>
+            <h5 class="fw-bold">{{data.name}}. {{data.sys.country}}</h5>
         </div>
         <div class="my-2 d-flex align-items-center">
             <img 
@@ -46,3 +46,19 @@
         </div>
     </div>
 </div>
+
+<script>
+    const formSearch = document.querySelector('#form-search')
+    const searchBtn = document.querySelector('#search-btn')
+    const weatherVisible = document.querySelector('#weather-visible')
+
+    formSearch.addEventListener('keydown', e => {
+        if (e.key === 'Enter') {
+            e.preventDefault()
+        }
+    })
+
+    searchBtn.addEventListener('click', () => {
+        weatherVisible.classList.remove('d-none')
+    })
+</script>
