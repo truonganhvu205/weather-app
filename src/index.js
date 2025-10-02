@@ -22,6 +22,19 @@ app.use(methodOverride('_method'))
 
 app.engine('.hbs', engine({
     extname: '.hbs',
+    helpers: {
+        windSpeedCompass: (value) => {
+            const val = Math.floor((value / 22.5) + 0.5)
+            const arr = ["N","NNE","NE","ENE","E","ESE","SE","SSE",
+                        "S","SSW","SW","WSW","W","WNW","NW","NNW"]
+
+            return arr[val % 16]
+        },
+        mConvertKm: value => {
+            value/=1000
+            return value.toFixed(1)
+        },
+    },
 }))
 app.set('view engine', '.hbs')
 app.set('views', path.join(__dirname, 'resources', 'views'))
