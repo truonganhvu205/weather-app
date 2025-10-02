@@ -3,6 +3,7 @@
 A simple Weather App that can search and track your place's weather in real time.
 
 [OpenWeatherMap API](https://openweathermap.org/api)
+
 [OpenWeatherMap Icons](https://openweathermap.org/weather-conditions)
 
 #### npm Packages
