@@ -1,16 +1,48 @@
 <div class="my-4 w-50 m-auto" style="min-height: 80vh;">
-    <h1 class="text-center fw-bold">Weather App</h1>
+    <div class="my-4">
+        <h1 class="text-center fw-bold">Weather App</h1>
 
-    <form method="GET" action="/">
-        <div class="my-4 d-flex justify-content-center align-items-center">
-            <input 
-            type="text" 
-            name="name" 
-            id="" 
-            class="w-100 p-2 border-0 border-bottom" 
-            placeholder="Where do you live? ..."
-            required>
-            <button type="submit" class="btn btn-link text-decoration-none">Search</button>
+        <form method="GET" action="/">
+            <div class="my-4 d-flex justify-content-center align-items-center">
+                <input 
+                type="text" 
+                name="q" 
+                id="" 
+                class="w-100 p-2 border-0 border-bottom" 
+                placeholder="Where do you live? ..."
+                required>
+                <button type="submit" class="btn btn-link text-decoration-none" id="searchBtn">Search</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="my-4" id="weather-visible">
+        <div>
+            <p>Oct 2, 08:56am</p>
+            <h5 class="fw-bold">{{data.name}}, {{data.sys.country}}</h5>
         </div>
-    </form>
+        <div class="my-2 d-flex align-items-center">
+            <img 
+            src="https://openweathermap.org/img/wn/{{data.weather.0.icon}}@2x.png" 
+            alt=""
+            style="width: 4em;">
+            <h3>{{data.main.temp}}&deg;C</h3>
+        </div>
+        <div>
+            <p class="fw-semibold">Feels like {{data.main.feels_like}}&deg;C, {{data.weather.0.description}}.</p>
+            <table class="table table-borderless" id="weather-app-table">
+                <thead></thead>
+                <tbody>
+                    <tr>
+                        <td>Wind speed: {{data.wind.speed}}m/s</td>
+                        <td>Atmospheric Pressure: {{data.main.pressure}}hPa</td>
+                    </tr>
+                    <tr>
+                        <td>Humidity: {{data.main.humidity}}%</td>
+                        <td>Visibility: {{data.visibility}}km</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
